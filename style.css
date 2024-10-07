@@ -1,0 +1,748 @@
+/* Color Variables */
+:root {
+  --primary-bg-color: black;
+  --primary-text-color: #ffffff;
+  --accent-color: orange;
+  --secondary-text-color: #b3b3b3;
+  --link-hover-color: #ffffff;
+  --btn-bg-color: black;
+  --btn-hover-bg-color: #0056b3;
+  --input-border-color: #ced4da;
+  --box-color: #908c85;
+  --box-dark-color: #5f5a58;
+  --box-light-color: #131312;
+}
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg, var(--primary-bg-color), var(--box-dark-color));
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Waves */
+.box {
+  position: fixed;
+  top: 0;
+  transform: rotate(80deg);
+  left: 0;
+  z-index: -1;
+}
+
+.wave {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: .4;
+  background: var(--box-color);
+  width: 1500px;
+  height: 1300px;
+  margin-left: -150px;
+  margin-top: -250px;
+  transform-origin: 50% 48%;
+  border-radius: 43%;
+  animation: drift 24000ms infinite linear;
+}
+
+.wave.-three {
+  animation: drift 30000ms infinite linear;
+  background-color: var(--box-dark-color);
+}
+
+.wave.-two {
+  animation: drift 20000ms infinite linear;
+  opacity: .1;
+  background: var(--box-light-color);
+}
+
+@keyframes drift {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Sticky Header */
+header {
+  background-color: var(--btn-bg-color);
+  color: var(--primary-text-color);
+  padding: 14px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.sticky {
+  background-color: var(--box-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* General Link Styling - Remove Underline */
+header a {
+  text-decoration: none; /* Remove underline by default */
+  color: var(--accent-color); /* Adjust color if needed */
+  transition: color 0.3s ease; /* Smooth transition for color change on hover */
+}
+
+/* Header Links on Hover - Remove Underline */
+header a:hover {
+  text-decoration: none; /* Ensure no underline on hover */
+  color: var(--btn-bg-color); /* Optional: Change color on hover if desired */
+}
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.logo a {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary-text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.logo a:hover {
+  color: var(--accent-color);
+  text-shadow: 0 0 25px #d9d9c6, 0 0 50px #d9d9c6;
+  transform: scale(1.1);
+}
+
+.logo span {
+  color: var(--accent-color);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: var(--primary-text-color);
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 5px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--accent-color);
+}
+
+nav ul li a.active::after {
+  width: 100%;
+}
+
+/* Section Styles */
+section {
+  padding: 100px 20px;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding: 150px 50px;
+}
+
+h1, h2 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--primary-text-color);
+  margin: 0;
+  animation: fadeIn 2s ease-in-out;
+}
+
+h2 {
+  font-size: 60px;
+  color: var(--accent-color);
+  margin: 10px 0;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+p {
+  font-size: 1.2rem;
+  color: var(--secondary-text-color);
+  margin-bottom: 20px;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Social Links */
+.social-links {
+  margin-top: 20px;
+}
+
+.btn-social {
+  display: inline-block;
+  background-color: var(--btn-bg-color);
+  color: var(--primary-text-color);
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-social i {
+  color: var(--accent-color);
+  margin-right: 6px;
+}
+
+.btn-social:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-social:hover i {
+  color: var(--primary-text-color);
+}
+
+/* Technologies and Tools */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.tech-item {
+  background-color: var(--primary-text-color);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-item i {
+  font-size: 3rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.tech-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Projects Section */
+#projects {
+  padding: 100px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.projectItems {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.projectItem {
+  background-color: var(--box-dark-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.projectItem p {
+  color: white;
+}
+
+.projectItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.projectThumbnail img {
+  width: 100%;
+  height: 200px; /* Set a consistent height for all images */
+  object-fit: cover; /* Ensures images fit within their container without stretching or distorting */
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projectThumbnail img:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  h1 {
+      font-size: 2.5rem;
+  }
+
+  h2 {
+      font-size: 2rem;
+  }
+
+  .tech-grid, .projectItems {
+      grid-template-columns: repeat(1, 1fr);
+  }
+
+  .social-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .btn-social {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+  }
+}
+
+/* Larger Devices (Desktops) */
+@media (min-width: 1024px) {
+  .container {
+      max-width: 1200px;
+  }
+
+  h1 {
+      font-size: 4.5rem;
+  }
+
+  h2 {
+      font-size: 3.5rem;
+  }
+}
+
+#contact {
+  padding: 100px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: transparent; /* Make the background transparent */
+  border-radius: 10px; /* You can keep this for rounded edges if you want */
+}
+
+.contact-form {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1rem;
+  color: #343a40;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background for inputs */
+  color: var(--primary-text-color); /* Ensures text inside inputs is visible */
+}
+
+button[type="submit"] {
+  background-color: var(--btn-hover-bg-color);
+  color: var(--primary-text-color);
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--btn-bg-color);
+}
+
+
+/* Scroll-triggered Animations */
+.scroll-element {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Ensure the element remains in view once animated */
+.scroll-element.scrolled,
+.scroll-element.permanent {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Footer Styling */
+.footer {
+  background-color: var(--box-dark-color);
+  padding: 30px 0; /* Increased padding for a balanced look */
+  text-align: center;
+  font-size: 1rem; /* Slightly larger for better readability */
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  color: var(--primary-text-color);
+  line-height: 1.6;
+}
+
+/* Highlighted Designer Name */
+.footer-content .highlight {
+  color: orange; /* Bright green color to highlight designer's name */
+}
+
+/* Links for Technologies and Hosting */
+.footer-content .tech-link {
+  color: (--accent-color); /* Green color for links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-content .tech-link:hover {
+  color: (--accent-color); /* Slightly different shade of green on hover */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .footer {
+      font-size: 0.9rem; /* Smaller font size for better fit on mobile */
+  }
+}
+
+
+
+/* Hobbies & Interests Section */
+#hobbies {
+  padding: 100px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#hobbies h2 {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 30px;
+}
+
+.hobbies-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Individual Hobby Panel */
+.hobby-panel {
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-text-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby-panel:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Hobby Icon on the Left */
+.hobby-icon {
+  flex: 0 0 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  font-size: 3rem;
+  color: var(--accent-color);
+}
+
+/* Hobby Content on the Right */
+.hobby-content {
+  flex: 1;
+  text-align: left;
+}
+
+.hobby-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: var(--btn-bg-color);
+}
+
+.hobby-content p {
+  font-size: 1rem;
+  color: var(--secondary-text-color);
+  line-height: 1.6;
+}
+
+/* Link Button for Related Content */
+.hobby-links {
+  margin-top: 20px;
+  display: flex;  /* Use flexbox to ensure buttons are aligned horizontally */
+  gap: 15px;      /* Space between each button */
+  flex-wrap: nowrap; /* Prevent buttons from wrapping to the next line */
+  justify-content: flex-start; /* Align items to the left */
+  align-items: center; /* Align items in the center vertically */
+}
+
+/* Individual Link Button */
+.link-button {
+  display: inline-block;
+  background-color: var(--btn-bg-color);
+  color: var(--primary-text-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  white-space: nowrap; /* Prevent buttons from wrapping text to a new line */
+  margin-right: 10px; /* Add margin to create spacing between each button */
+}
+
+.link-button:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+
+
+
+/* Responsive Styles for Hobbies Section */
+@media (max-width: 768px) {
+  .hobby-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .hobby-icon {
+    margin-bottom: 15px;
+  }
+}
+
+
+/* About and Technologies Wrapper */
+.about-technologies-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+/* Left Column: About Content */
+.about-content {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+  background-color: var(--box-dark-color);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-content h2 {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  color: var(--primary-text-color);
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Technologies and Tools */
+.technologies-tools {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+  background-color: var(--box-dark-color);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.technologies-tools h2 {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+}
+
+.technologies-tools p {
+  font-size: 1.1rem;
+  color: var(--primary-text-color);
+  margin-bottom: 30px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Tech Scroll Container */
+.tech-scroll-container {
+  overflow: hidden;
+  position: relative;
+  max-width: 100%;
+  white-space: nowrap; /* Prevent items from wrapping */
+}
+
+/* Tech Grid Styling */
+.tech-grid {
+  display: flex; /* Use flexbox for horizontal scrolling */
+  gap: 30px; /* Space between items */
+  will-change: transform; /* Optimize for smoother animation */
+}
+
+/* Individual Tech Item Styling */
+.tech-item {
+  background-color: #3c3c3c; /* Darker grey background */
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px; /* Consistent item size */
+  flex: 0 0 auto; /* Prevent flexbox from shrinking the items */
+}
+
+/* Icon Styling */
+.tech-item i {
+  font-size: 3rem; /* Larger icons for visual impact */
+  color: var(--accent-color);
+  margin-bottom: 10px; /* Space between icon and text */
+}
+
+/* Title Below Icon */
+.tech-item p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #f0f0f0; /* Lighter grey for better contrast */
+}
+
+/* Hover Effect for Tech Items */
+.tech-item:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  background-color: #565656; /* A bit lighter on hover for emphasis */
+}
+
+/* Icon and Text Hover Effect */
+.tech-item:hover i,
+.tech-item:hover p {
+  color: var(--primary-text-color); /* Color change for contrast on hover */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about-technologies-wrapper {
+      flex-direction: column;
+      padding: 20px;
+  }
+
+  .about-content,
+  .technologies-tools {
+      margin-bottom: 20px;
+  }
+
+  .tech-grid {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      animation: none;
+      gap: 15px;
+  }
+
+  .tech-item {
+      width: auto;
+      height: auto;
+      padding: 15px;
+  }
+}
+
+/* About Content Box */
+.about-content {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+  background-color: var(--box-dark-color);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Image Styling */
+.about-image {
+  display: block;
+  width: 100%;  /* Make sure the image takes the full width of the container */
+  max-height: 250px; /* Set a reasonable maximum height to maintain balance in the layout */
+  object-fit: cover; /* Ensures the image fills the container without distortion */
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
