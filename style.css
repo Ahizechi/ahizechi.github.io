@@ -322,6 +322,11 @@ a:hover {
   border-radius: 10px;
 }
 
+#contact .form-group label {
+  color: orange;
+  font-weight: bold;
+}
+
 .contact-form {
   margin-top: 20px;
   text-align: left;
