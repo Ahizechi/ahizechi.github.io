@@ -722,6 +722,29 @@ button[type="submit"]:hover {
   }
 }
 
+/* Mobile View for Technical Expertise Section */
+@media (max-width: 768px) {
+    .about-technologies-wrapper {
+        flex-direction: column; /* Stack the sections vertically on mobile */
+        align-items: center; /* Center align the content */
+        gap: 20px; /* Add some space between the sections */
+    }
+
+    .technologies-tools {
+        width: 90%; /* Adjust width for mobile */
+    }
+
+    .about-content {
+        width: 90%; /* Adjust width for mobile */
+    }
+
+    /* Ensure the text is not stretched vertically */
+    .technologies-tools p {
+        text-align: left;
+    }
+}
+
+
 
 
 
