@@ -21,8 +21,6 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
   background: linear-gradient(120deg, var(--primary-bg-color), var(--box-dark-color));
   overflow-x: hidden;
   font-family: Arial, sans-serif;
@@ -86,17 +84,17 @@ header.sticky {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* General Link Styling - Remove Underline */
+/* General Link Styling */
 header a {
-  text-decoration: none; /* Remove underline by default */
-  color: var(--accent-color); /* Adjust color if needed */
-  transition: color 0.3s ease; /* Smooth transition for color change on hover */
+  text-decoration: none; 
+  color: var(--accent-color);
+  transition: color 0.3s ease; 
 }
 
-/* Header Links on Hover - Remove Underline */
+/* Header Links on Hover */
 header a:hover {
-  text-decoration: none; /* Ensure no underline on hover */
-  color: var(--btn-bg-color); /* Optional: Change color on hover if desired */
+  text-decoration: none; 
+  color: var(--btn-bg-color);
 }
 
 
@@ -315,54 +313,13 @@ a:hover {
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-@media (max-width: 768px) {
-  h1 {
-      font-size: 2.5rem;
-  }
-
-  h2 {
-      font-size: 2rem;
-  }
-
-  .tech-grid, .projectItems {
-      grid-template-columns: repeat(1, 1fr);
-  }
-
-  .social-links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .btn-social {
-      width: 100%;
-      text-align: center;
-      margin-bottom: 10px;
-  }
-}
-
-/* Larger Devices (Desktops) */
-@media (min-width: 1024px) {
-  .container {
-      max-width: 1200px;
-  }
-
-  h1 {
-      font-size: 4.5rem;
-  }
-
-  h2 {
-      font-size: 3.5rem;
-  }
-}
-
 #contact {
   padding: 100px 20px;
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
   background-color: transparent; /* Make the background transparent */
-  border-radius: 10px; /* You can keep this for rounded edges if you want */
+  border-radius: 10px;
 }
 
 .contact-form {
@@ -426,7 +383,7 @@ button[type="submit"]:hover {
 /* Footer Styling */
 .footer {
   background-color: var(--box-dark-color);
-  padding: 30px 0; /* Increased padding for a balanced look */
+  padding: 10px 0; /* Increased padding for a balanced look */
   text-align: center;
   font-size: 1rem; /* Slightly larger for better readability */
 }
@@ -435,155 +392,38 @@ button[type="submit"]:hover {
   max-width: 1000px;
   margin: 0 auto;
   color: var(--primary-text-color);
-  line-height: 1.6;
+  line-height: 0.6;
 }
 
 /* Highlighted Designer Name */
 .footer-content .highlight {
-  color: orange; /* Bright green color to highlight designer's name */
+  color: orange; 
 }
 
 /* Links for Technologies and Hosting */
 .footer-content .tech-link {
-  color: (--accent-color); /* Green color for links */
+  color: (--accent-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-content .tech-link:hover {
-  color: (--accent-color); /* Slightly different shade of green on hover */
+  color: (--accent-color);
 }
-
-/* Responsive Styling */
-@media (max-width: 768px) {
-  .footer {
-      font-size: 0.9rem; /* Smaller font size for better fit on mobile */
-  }
-}
-
-
-
-/* Hobbies & Interests Section */
-#hobbies {
-  padding: 100px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-#hobbies h2 {
-  font-size: 2.5rem;
-  color: var(--accent-color);
-  margin-bottom: 30px;
-}
-
-.hobbies-container {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-/* Individual Hobby Panel */
-.hobby-panel {
-  display: flex;
-  align-items: center;
-  background-color: var(--primary-text-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hobby-panel:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Hobby Icon on the Left */
-.hobby-icon {
-  flex: 0 0 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 20px;
-  font-size: 3rem;
-  color: var(--accent-color);
-}
-
-/* Hobby Content on the Right */
-.hobby-content {
-  flex: 1;
-  text-align: left;
-}
-
-.hobby-content h3 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-  color: var(--btn-bg-color);
-}
-
-.hobby-content p {
-  font-size: 1rem;
-  color: var(--secondary-text-color);
-  line-height: 1.6;
-}
-
-/* Link Button for Related Content */
-.hobby-links {
-  margin-top: 20px;
-  display: flex;  /* Use flexbox to ensure buttons are aligned horizontally */
-  gap: 15px;      /* Space between each button */
-  flex-wrap: nowrap; /* Prevent buttons from wrapping to the next line */
-  justify-content: flex-start; /* Align items to the left */
-  align-items: center; /* Align items in the center vertically */
-}
-
-/* Individual Link Button */
-.link-button {
-  display: inline-block;
-  background-color: var(--btn-bg-color);
-  color: var(--primary-text-color);
-  padding: 10px 15px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  white-space: nowrap; /* Prevent buttons from wrapping text to a new line */
-  margin-right: 10px; /* Add margin to create spacing between each button */
-}
-
-.link-button:hover {
-  background-color: var(--accent-color);
-  transform: scale(1.05);
-}
-
-
-
-
-/* Responsive Styles for Hobbies Section */
-@media (max-width: 768px) {
-  .hobby-panel {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .hobby-icon {
-    margin-bottom: 15px;
-  }
-}
-
 
 /* About and Technologies Wrapper */
 .about-technologies-wrapper {
   display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 50px 20px;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 20px;
+  background-color: #3c3c3c; /* Background color for the container box */
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+  margin: 20px 0;
 }
 
-/* Left Column: About Content */
+/* About Content Box */
 .about-content {
   flex: 1;
   min-width: 300px;
@@ -592,6 +432,7 @@ button[type="submit"]:hover {
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 .about-content h2 {
@@ -607,33 +448,15 @@ button[type="submit"]:hover {
   text-align: justify;
 }
 
-/* About and Technologies Wrapper */
-.about-technologies-wrapper {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  padding: 20px;
-  background-color: #3c3c3c; /* Background color for the container box */
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
-  margin: 20px 0;
-}
-
-/* About Content Styling */
-.about-content {
-  width: 45%; /* Adjust width */
-  background-color: #4b4b4b; /* Dark background inside the box */
-  padding: 20px;
-  border-radius: 15px;
-  color: #fff;
-}
-
-/* About Image Styling */
+/* Image Styling */
 .about-image {
-  max-width: 100%;
-  height: auto;
+  display: block;
+  width: 100%;  /* Make sure the image takes the full width of the container */
+  max-height: 250px; /* Set a reasonable maximum height to maintain balance in the layout */
+  object-fit: cover; /* Ensures the image fills the container without distortion */
+  margin-top: 20px;
   border-radius: 10px;
-  margin-top: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Technologies and Tools Styling */
@@ -695,21 +518,6 @@ button[type="submit"]:hover {
   height: 100%; /* Ensure the item fills the entire grid space */
 }
 
-/* Tech Item Icons */
-.tech-item i {
-  font-size: 2.5rem;
-  color: #ffb400;
-  margin-bottom: 10px;
-  align-self: center; /* Ensure icon is centered horizontally */
-  margin-top: 5px; /* Adjust position slightly above center */
-}
-
-/* Tech Item Hover Effect */
-.tech-item:hover {
-  transform: scale(1.05); /* Slight scale on hover */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
 /* Continuous Scrolling Animation */
 @keyframes scroll-tech {
   0% {
@@ -718,28 +526,6 @@ button[type="submit"]:hover {
   100% {
       transform: translateX(-50%); /* Scroll half the width for a loop */
   }
-}
-
-/* Mobile View for Technical Expertise Section */
-@media (max-width: 768px) {
-    .about-technologies-wrapper {
-        flex-direction: column; /* Stack the sections vertically on mobile */
-        align-items: center; /* Center align the content */
-        gap: 20px; /* Add some space between the sections */
-    }
-
-    .technologies-tools {
-        width: 90%; /* Adjust width for mobile */
-    }
-
-    .about-content {
-        width: 90%; /* Adjust width for mobile */
-    }
-
-    /* Ensure the text is not stretched vertically */
-    .technologies-tools p {
-        text-align: left;
-    }
 }
 
 /* Icon Styling */
@@ -770,12 +556,54 @@ button[type="submit"]:hover {
   color: var(--primary-text-color); /* Color change for contrast on hover */
 }
 
+/* Larger Devices (Desktops) */
+@media (min-width: 1024px) {
+  .container {
+      max-width: 1200px;
+  }
 
-/* Responsive Adjustments */
+  h1 {
+      font-size: 4.5rem;
+  }
+
+  h2 {
+      font-size: 3.5rem;
+  }
+}
+
 @media (max-width: 768px) {
+
+  h1 {
+      font-size: 2.5rem;
+  }
+
+  h2 {
+      font-size: 2rem;
+  }
+
+  .tech-grid, .projectItems {
+      grid-template-columns: repeat(1, 1fr);
+  }
+
+  .social-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .btn-social {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+  }
+
   .about-technologies-wrapper {
       flex-direction: column;
       padding: 20px;
+  }
+
+  .footer {
+    font-size: 0.9rem; /* Smaller font size for better fit on mobile */
   }
 
   .about-content,
@@ -796,32 +624,3 @@ button[type="submit"]:hover {
       padding: 15px;
   }
 }
-
-/* About Content Box */
-.about-content {
-  flex: 1;
-  min-width: 300px;
-  text-align: left;
-  background-color: var(--box-dark-color);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  position: relative;
-}
-
-/* Image Styling */
-.about-image {
-  display: block;
-  width: 100%;  /* Make sure the image takes the full width of the container */
-  max-height: 250px; /* Set a reasonable maximum height to maintain balance in the layout */
-  object-fit: cover; /* Ensures the image fills the container without distortion */
-  margin-top: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-
-
-
-
-
