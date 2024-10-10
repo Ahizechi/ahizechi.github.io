@@ -607,15 +607,61 @@ button[type="submit"]:hover {
   text-align: justify;
 }
 
-/* Technologies and Tools */
-.technologies-tools {
-  flex: 1;
-  min-width: 300px;
-  text-align: left;
-  background-color: var(--box-dark-color);
-  padding: 30px;
+/* About and Technologies Wrapper */
+.about-technologies-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 20px;
+  background-color: #3c3c3c; /* Background color for the container box */
   border-radius: 15px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+  margin: 20px 0;
+}
+
+/* About Content Styling */
+.about-content {
+  width: 45%; /* Adjust width */
+  background-color: #4b4b4b; /* Dark background inside the box */
+  padding: 20px;
+  border-radius: 15px;
+  color: #fff;
+}
+
+/* About Image Styling */
+.about-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+/* Technologies and Tools Styling */
+.technologies-tools {
+  width: 45%; /* Adjust width */
+  background-color: var(--box-dark-color); /* Dark background inside the box */
+  padding: 20px;
+  border-radius: 15px;
+  color: white;
+  text-align: justify;
+
+}
+
+.technologies-tools p {
+  font-size: 1.1rem;
+  color: var(--primary-text-color);
+  line-height: 1.6;
+  text-align: justify;
+}
+
+
+/* Tech Scroll Container */
+.tech-scroll-container {
+  overflow: hidden; /* Hide overflow, but ensure enough space */
+  position: relative;
+  width: 100%;
+  height: 300px; /* Increase the height further to fit two rows completely */
+  padding-bottom: 20px; /* Extra padding to ensure full visibility */
 }
 
 .technologies-tools h2 {
@@ -624,44 +670,61 @@ button[type="submit"]:hover {
   margin-bottom: 20px;
 }
 
-.technologies-tools p {
-  font-size: 1.1rem;
-  color: var(--primary-text-color);
-  margin-bottom: 30px;
-  line-height: 1.6;
-  text-align: justify;
-}
-
-/* Tech Scroll Container */
-.tech-scroll-container {
-  overflow: hidden;
-  position: relative;
-  max-width: 100%;
-  white-space: nowrap; /* Prevent items from wrapping */
-}
-
 /* Tech Grid Styling */
 .tech-grid {
-  display: flex; /* Use flexbox for horizontal scrolling */
-  gap: 30px; /* Space between items */
-  will-change: transform; /* Optimize for smoother animation */
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 items per row */
+  grid-auto-rows: 120px; /* Maintain the row height */
+  grid-gap: 20px;
+  width: 200%; /* Allow scrolling */
+  animation: scroll-tech 20s linear infinite;
 }
 
 /* Individual Tech Item Styling */
 .tech-item {
-  background-color: #3c3c3c; /* Darker grey background */
+  background-color: #505050;
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 10px;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start; /* Align content to start */
   align-items: center;
-  justify-content: center;
-  min-width: 150px; /* Consistent item size */
-  flex: 0 0 auto; /* Prevent flexbox from shrinking the items */
+  height: 100%; /* Ensure the item fills the entire grid space */
 }
+
+/* Tech Item Icons */
+.tech-item i {
+  font-size: 2.5rem;
+  color: #ffb400;
+  margin-bottom: 10px;
+  align-self: center; /* Ensure icon is centered horizontally */
+  margin-top: 5px; /* Adjust position slightly above center */
+}
+
+/* Tech Item Hover Effect */
+.tech-item:hover {
+  transform: scale(1.05); /* Slight scale on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Continuous Scrolling Animation */
+@keyframes scroll-tech {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-50%); /* Scroll half the width for a loop */
+  }
+}
+
+
+
+
 
 /* Icon Styling */
 .tech-item i {
