@@ -1,17 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Typed.js implementation
+
+    // Typed.js implementation for typing effect on homepage
     var typed = new Typed('#typed', {
         strings: ["Software Developer", "Robotics Engineer", "Musician", "Professional Gamer"],
-        typeSpeed: 50,
-        backSpeed: 50,
-        backDelay: 1500,
-        startDelay: 500,
-        loop: true,
-        showCursor: true,
-        cursorChar: '|',
+        typeSpeed: 50,        // Typing speed in milliseconds
+        backSpeed: 50,        // Backspace speed in milliseconds
+        backDelay: 1500,      // Delay before backspacing
+        startDelay: 500,      // Delay before typing starts
+        loop: true,           // Loop the animation
+        showCursor: true,     // Show cursor at the end of typed text
+        cursorChar: '|',      // Character for the cursor
     });
 
-    // Sticky Navigation Bar
+    // Sticky Navigation Bar: Add 'sticky' class when scrolling beyond 50px
     const header = document.querySelector('header');
     window.addEventListener('scroll', function () {
         if (window.scrollY > 50) {
@@ -21,43 +22,43 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Smooth Scrolling for Navigation Links
+    // Smooth Scrolling for Navigation Links: Scroll to section smoothly on link click
     const navLinks = document.querySelectorAll('.nav-links a');
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
-            e.preventDefault();
+            e.preventDefault();  // Prevent default anchor behavior
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
 
             if (targetSection) {
+                // Scroll to the target section with a smooth behavior
                 window.scrollTo({
-                    top: targetSection.offsetTop - 50,
+                    top: targetSection.offsetTop - 50,  // Adjust for sticky header
                     behavior: 'smooth'
                 });
             }
         });
     });
 
-    // Intersection Observer for Scroll-triggered Animations and Active Link Highlighting
+    // Intersection Observer: Add animation and highlight active nav link based on scroll
     const sections = document.querySelectorAll('section');
     const observerOptions = {
-        root: null,
-        threshold: 0.3,
+        root: null,           // Observe sections in the viewport
+        threshold: 0.3,       // Trigger when 30% of section is in view
     };
 
     const observerCallback = (entries) => {
         entries.forEach(entry => {
             const target = entry.target;
 
-            // Toggle active class on navigation links based on which section is in view
+            // Highlight active link and trigger section animation
             if (entry.isIntersecting) {
                 document.querySelector(`.nav-links a[href="#${target.id}"]`).classList.add('active');
-                target.classList.add('scrolled'); // Add animation when in view
+                target.classList.add('scrolled');   // Trigger section animation
             } else {
                 document.querySelector(`.nav-links a[href="#${target.id}"]`).classList.remove('active');
-                // Once the element is in view, keep it visible
                 if (!target.classList.contains('permanent')) {
-                    target.classList.add('permanent');
+                    target.classList.add('permanent'); // Keep section visible after animation
                 }
             }
         });
@@ -66,66 +67,63 @@ document.addEventListener('DOMContentLoaded', function () {
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     sections.forEach(section => {
         observer.observe(section);
-        section.classList.add('permanent'); // Ensure section stays visible after animation
+        section.classList.add('permanent');  // Ensure section stays visible after animation
     });
 
-    // Contact Form Email
+    // Contact Form Email via mailto: Open user's email client with pre-filled subject and message
     document.getElementById('contactForm').addEventListener('submit', function (event) {
-        event.preventDefault();
+        event.preventDefault();  // Prevent form submission reloading the page
         const subject = document.getElementById('subject').value;
         const message = document.getElementById('message').value;
 
+        // Format the mailto link with the subject and message
         const mailtoLink = `mailto:your-email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-        window.location.href = mailtoLink;
+        window.location.href = mailtoLink;  // Open user's default email client
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
-        const techGrid = document.querySelector('.tech-grid');
-    
-        // Clone the items to ensure continuous looping
-        let clone = techGrid.innerHTML;
-        techGrid.innerHTML += clone;
-    
-        let position = 0;
-        const speed = 0.5; // Adjust speed for smoother scrolling
-    
-        function scrollTechGrid() {
-            position -= speed;
-    
-            // Reset position once we've scrolled through half of the total items to keep it continuous
-            if (Math.abs(position) >= techGrid.scrollWidth / 2) {
-                position = 0;
-            }
-    
-            techGrid.style.transform = `translateX(${position}px)`;
-    
-            requestAnimationFrame(scrollTechGrid);
+    // Continuous Scrolling for Tech Grid: Create a conveyor belt scrolling effect
+    const techGrid = document.querySelector('.tech-grid');
+
+    // Clone the items to ensure continuous looping
+    let clone = techGrid.innerHTML;
+    techGrid.innerHTML += clone;
+
+    let position = 0;
+    const speed = 0.5;  // Adjust scrolling speed
+
+    function scrollTechGrid() {
+        position -= speed;
+
+        // Reset position once half of the total items are scrolled for looping effect
+        if (Math.abs(position) >= techGrid.scrollWidth / 2) {
+            position = 0;
         }
-    
-        scrollTechGrid();
+
+        techGrid.style.transform = `translateX(${position}px)`;
+        requestAnimationFrame(scrollTechGrid);  // Keep scrolling
+    }
+
+    scrollTechGrid();
+
+    // EmailJS: Send email via EmailJS service when form is submitted
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+        event.preventDefault();  // Prevent page reload
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        // Parameters for EmailJS template
+        const templateParams = {
+            subject: subject,
+            message: message,
+        };
+
+        // Send the email via EmailJS
+        emailjs.send('service_qbxuazg', 'template_byvek1t', templateParams)
+            .then(function (response) {
+                alert('Message sent successfully!', response.status, response.text);
+            }, function (error) {
+                alert('Failed to send the message. Please try again later.', error);
+            });
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('contactForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-    
-            // EmailJS parameters
-            const templateParams = {
-                subject: subject,
-                message: message,
-            };
-    
-            emailjs.send('service_qbxuazg', 'template_byvek1t', templateParams)
-                .then(function(response) {
-                    alert('Message sent successfully!', response.status, response.text);
-                }, function(error) {
-                    alert('Failed to send the message. Please try again later.', error);
-                });
-        });
-    });
-    
-    
 });

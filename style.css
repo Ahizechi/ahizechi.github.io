@@ -710,8 +710,6 @@ button[type="submit"]:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-
-
 /* Continuous Scrolling Animation */
 @keyframes scroll-tech {
   0% {
@@ -743,11 +741,6 @@ button[type="submit"]:hover {
         text-align: left;
     }
 }
-
-
-
-
-
 
 /* Icon Styling */
 .tech-item i {
