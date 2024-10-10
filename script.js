@@ -70,15 +70,29 @@ document.addEventListener('DOMContentLoaded', function () {
         section.classList.add('permanent');  // Ensure section stays visible after animation
     });
 
-    // Contact Form Email via mailto: Open user's email client with pre-filled subject and message
+    // Contact Form Submission using EmailJS
     document.getElementById('contactForm').addEventListener('submit', function (event) {
-        event.preventDefault();  // Prevent form submission reloading the page
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
+        event.preventDefault();  // Prevent page reload
 
-        // Format the mailto link with the subject and message
-        const mailtoLink = `mailto:your-email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-        window.location.href = mailtoLink;  // Open user's default email client
+        const templateParams = {
+            from_name: document.getElementById('from_name').value,  // User's name
+            subject: document.getElementById('subject').value,      // Subject
+            message: document.getElementById('message').value,      // Message content
+            reply_to: document.getElementById('reply_to').value     // User's email for reply
+        };
+
+        // Debugging: Check if the form data is correct
+        console.log(templateParams);
+
+        // Send the email via EmailJS
+        emailjs.send('service_qbxuazg', 'template_byvek1t', templateParams)
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert('Message sent successfully!');
+            }, function (error) {
+                console.log('FAILED...', error);
+                alert('Failed to send the message. Please try again later.');
+            });
     });
 
     // Continuous Scrolling for Tech Grid: Create a conveyor belt scrolling effect
@@ -104,26 +118,4 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     scrollTechGrid();
-
-    // EmailJS: Send email via EmailJS service when form is submitted
-    document.getElementById('contactForm').addEventListener('submit', function (event) {
-        event.preventDefault();  // Prevent page reload
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-
-        // Parameters for EmailJS template
-        const templateParams = {
-            subject: subject,
-            message: message,
-        };
-
-        // Send the email via EmailJS
-        emailjs.send('service_qbxuazg', 'template_byvek1t', templateParams)
-            .then(function (response) {
-                alert('Message sent successfully!', response.status, response.text);
-            }, function (error) {
-                alert('Failed to send the message. Please try again later.', error);
-            });
-    });
-
 });
