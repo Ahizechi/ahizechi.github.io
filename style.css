@@ -62,11 +62,6 @@ body {
   background: var(--box-light-color);
 }
 
-@keyframes drift {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 /* Sticky Header */
 header {
   background-color: var(--btn-bg-color);
@@ -185,11 +180,6 @@ h2 {
   font-size: 60px;
   color: var(--accent-color);
   margin: 10px 0;
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(-20px); }
-  100% { opacity: 1; transform: translateY(0); }
 }
 
 p {
@@ -369,7 +359,6 @@ button[type="submit"]:hover {
   background-color: var(--btn-bg-color);
 }
 
-
 /* Scroll-triggered Animations */
 .scroll-element {
   opacity: 0;
@@ -382,38 +371,6 @@ button[type="submit"]:hover {
 .scroll-element.permanent {
   opacity: 1;
   transform: translateY(0);
-}
-
-
-/* Footer Styling */
-.footer {
-  background-color: var(--box-dark-color);
-  padding: 10px 0; /* Increased padding for a balanced look */
-  text-align: center;
-  font-size: 1rem; /* Slightly larger for better readability */
-}
-
-.footer-content {
-  max-width: 1000px;
-  margin: 0 auto;
-  color: var(--primary-text-color);
-  line-height: 0.6;
-}
-
-/* Highlighted Designer Name */
-.footer-content .highlight {
-  color: orange; 
-}
-
-/* Links for Technologies and Hosting */
-.footer-content .tech-link {
-  color: (--accent-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-content .tech-link:hover {
-  color: (--accent-color);
 }
 
 /* About and Technologies Wrapper */
@@ -482,7 +439,6 @@ button[type="submit"]:hover {
   text-align: justify;
 }
 
-
 /* Tech Scroll Container */
 .tech-scroll-container {
   overflow: hidden; /* Hide overflow, but ensure enough space */
@@ -523,16 +479,6 @@ button[type="submit"]:hover {
   height: 100%; /* Ensure the item fills the entire grid space */
 }
 
-/* Continuous Scrolling Animation */
-@keyframes scroll-tech {
-  0% {
-      transform: translateX(0);
-  }
-  100% {
-      transform: translateX(-50%); /* Scroll half the width for a loop */
-  }
-}
-
 /* Icon Styling */
 .tech-item i {
   font-size: 3rem; /* Larger icons for visual impact */
@@ -559,6 +505,26 @@ button[type="submit"]:hover {
 .tech-item:hover i,
 .tech-item:hover p {
   color: var(--primary-text-color); /* Color change for contrast on hover */
+}
+
+@keyframes drift {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Continuous Scrolling Animation */
+@keyframes scroll-tech {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-50%); /* Scroll half the width for a loop */
+  }
 }
 
 /* Larger Devices (Desktops) */
