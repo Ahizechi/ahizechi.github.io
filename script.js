@@ -89,6 +89,10 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(function (response) {
                 console.log('SUCCESS!', response.status, response.text);
                 alert('Message sent successfully!');
+
+                // Clear the form fields
+                document.getElementById('contactForm').reset();
+                
             }, function (error) {
                 console.log('FAILED...', error);
                 alert('Failed to send the message. Please try again later.');
