@@ -104,5 +104,28 @@ document.addEventListener('DOMContentLoaded', function () {
     
         scrollTechGrid();
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+    
+            // EmailJS parameters
+            const templateParams = {
+                subject: subject,
+                message: message,
+            };
+    
+            emailjs.send('service_qbxuazg', 'template_byvek1t', templateParams)
+                .then(function(response) {
+                    alert('Message sent successfully!', response.status, response.text);
+                }, function(error) {
+                    alert('Failed to send the message. Please try again later.', error);
+                });
+        });
+    });
+    
     
 });

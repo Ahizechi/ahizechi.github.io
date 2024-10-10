@@ -47,31 +47,16 @@
     <script defer src="script.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-
-    <!-- Structured Data with JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Ahizechi Nwankwo",
-      "jobTitle": "Web Developer",
-      "url": "URL of your portfolio site",
-      "image": "URL to your profile image",
-      "sameAs": [
-        "https://www.linkedin.com/in/your-linkedin-profile",
-        "https://github.com/your-github-profile",
-        "https://twitter.com/your-twitter-handle"
-      ],
-      "description": "Ahizechi Nwankwo is a professional web developer specializing in front-end development and design.",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Your Company or Freelancer"
-      }
-    }
-    </script>
-
     <!-- Page Title -->
     <title>Ahizechi Nwankwo | Portfolio</title>
+
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function () {
+        emailjs.init("Zechi"); // Replace with your EmailJS user ID
+    })();
+</script>
+
 </head>
 <body>
 
@@ -257,13 +242,17 @@
             <a href="https://github.com/Ahizechi" target="_blank" class="btn-social">
                 <i class="fab fa-github"></i> Github
             </a>
-            <a href="ahizechi@hotmail.com" class="btn-social">
+            <a href="mailto:ahizechi@hotmail.com" class="btn-social">
                 <i class="fas fa-envelope"></i> Email
-            </a>
-        </div>
+            </a>            
+        </div>        
     
         <div class="contact-form">
             <form id="contactForm">
+                <div class="form-group">
+                    <label for="from_name">Your Name</label>
+                    <input type="text" id="from_name" name="from_name" required>
+                </div>
                 <div class="form-group">
                     <label for="subject">Subject</label>
                     <input type="text" id="subject" name="subject" required>
@@ -273,7 +262,7 @@
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
                 <button type="submit">Send Message</button>
-            </form>
+            </form>            
         </div>
     </section>
 
